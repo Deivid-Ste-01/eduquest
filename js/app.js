@@ -92,7 +92,7 @@ class EduQuest {
         { id: 'm3', name: 'Nivel 3: Teoría de Conjuntos', xp: 100, content: 'cursos/matematicas/nivel-3.md' },
         { id: 'm4', name: 'Nivel 4: Ecuaciones de Primer Grado', xp: 125, content: 'cursos/matematicas/nivel-4.md' }
     ]
-},
+} ,
             {
                 id: 'fisica',
                 name: 'Física',
