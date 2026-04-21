@@ -205,8 +205,10 @@ class EduQuest {
     }
 
     showReward(reward) {
+        // ✅ GUARD: solo ejecutar si estamos en index.html
         const panel = document.getElementById('rewards-panel');
         const list = document.getElementById('rewards-list');
+        if (!panel || !list) return;
         
         const div = document.createElement('div');
         div.className = 'reward-item';
@@ -224,15 +226,22 @@ class EduQuest {
     }
 
     init() {
-        this.updateUI();
-        this.renderCourses();
-        this.renderAchievements();
-        this.createRewardsToggle();
+        // ✅ GUARD: solo renderizar UI del index si estamos en index.html
+        if (document.getElementById('courses-grid')) {
+            this.updateUI();
+            this.renderCourses();
+            this.renderAchievements();
+            this.createRewardsToggle();
+        }
         this.checkRewards('level', this.user.level);
         this.checkRewards('xp', this.user.xp);
     }
 
     updateUI() {
+        // ✅ GUARD: salir si los elementos no existen (ej. en curso.html)
+        const xpEl = document.getElementById('user-xp');
+        if (!xpEl) return;
+
         document.getElementById('user-xp').textContent = this.user.xp;
         document.getElementById('user-level').textContent = this.user.level;
         document.getElementById('user-streak').textContent = this.user.streak;
@@ -252,7 +261,10 @@ class EduQuest {
     }
 
     renderCourses() {
+        // ✅ GUARD: salir si no existe el grid (ej. en curso.html)
         const grid = document.getElementById('courses-grid');
+        if (!grid) return;
+
         grid.innerHTML = '';
         
         this.courses.forEach(course => {
@@ -295,7 +307,10 @@ class EduQuest {
     }
 
     renderAchievements() {
+        // ✅ GUARD: salir si no existe el grid (ej. en curso.html)
         const grid = document.getElementById('achievements-grid');
+        if (!grid) return;
+
         grid.innerHTML = '';
         
         Object.entries(this.achievements).forEach(([id, ach]) => {
@@ -311,6 +326,9 @@ class EduQuest {
     }
 
     createRewardsToggle() {
+        // ✅ GUARD: solo crear el botón si estamos en index.html
+        if (!document.getElementById('courses-grid')) return;
+
         const btn = document.createElement('button');
         btn.className = 'rewards-toggle';
         btn.innerHTML = '🎁';
@@ -319,7 +337,10 @@ class EduQuest {
     }
 
     showAchievement(icon, title, desc) {
+        // ✅ GUARD: salir si el popup no existe (ej. en curso.html)
         const popup = document.getElementById('achievement-popup');
+        if (!popup) return;
+
         document.getElementById('popup-icon').textContent = icon;
         document.getElementById('popup-title').textContent = title;
         document.getElementById('popup-desc').textContent = desc;
@@ -348,7 +369,8 @@ class EduQuest {
 }
 
 function closePopup() {
-    document.getElementById('achievement-popup').classList.remove('active');
+    const popup = document.getElementById('achievement-popup');
+    if (popup) popup.classList.remove('active');
 }
 
 const app = new EduQuest();
