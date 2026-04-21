@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Cursos - EduQuest</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .generator-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+        
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .levels-builder {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+        }
+        
+        .level-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .btn-add {
+            background: var(--success);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .btn-remove {
+            background: var(--danger);
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+        
+        .btn-generate {
+            width: 100%;
+            padding: 1.2rem;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+        
+        .output-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #1e293b;
+            color: #e2e8f0;
+            border-radius: 15px;
+            overflow-x: auto;
+            display: none;
+        }
+        
+        .output-section pre {
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo" onclick="window.location.href='index.html'" style="cursor:pointer">
+            <span class="logo-icon">🎓</span>
+            <span class="logo-text">EduQuest</span>
+        </div>
+    </nav>
+
+    <div class="generator-container">
+        <h1>🛠️ Generador de Cursos</h1>
+        <p>Crea nuevos cursos para tu plataforma.</p>
+
+        <div class="form-group">
+            <label>ID del Curso (sin espacios)</label>
+            <input type="text" id="course-id" placeholder="ej: biologia-avanzada">
+        </div>
+
+        <div class="form-group">
+            <label>Nombre del Curso</label>
+            <input type="text" id="course-name" placeholder="ej: Biología Avanzada">
+        </div>
+
+        <div class="form-group">
+            <label>Icono (emoji)</label>
+            <input type="text" id="course-icon" placeholder="ej: 🧬" maxlength="2">
+        </div>
+
+        <div class="form-group">
+            <label>Descripción</label>
+            <input type="text" id="course-desc" placeholder="Breve descripción">
+        </div>
+
+        <div class="form-group">
+            <label>Color del Tema</label>
+            <select id="course-color">
+                <option value="course-math">Morado (Matemáticas)</option>
+                <option value="course-physics">Azul (Física)</option>
+                <option value="course-chem">Verde (Química)</option>
+                <option value="course-bio">Rosa (Biología)</option>
+            </select>
+        </div>
+
+        <div class="levels-builder">
+            <h3>📚 Niveles del Curso</h3>
+            <div id="levels-container"></div>
+            <button class="btn-add" onclick="addLevel()">+ Agregar Nivel</button>
+        </div>
+
+        <button class="btn-primary btn-generate" onclick="generateCourse()">
+            🚀 Generar Archivos del Curso
+        </button>
+
+        <div class="output-section" id="output">
+            <h3>📄 Archivos Generados</h3>
+            <pre id="output-content"></pre>
+        </div>
+    </div>
+
+    <script>
+        let levelCount = 0;
+
+        function addLevel() {
+            levelCount++;
+            const container = document.getElementById('levels-container');
+            const div = document.createElement('div');
+            div.className = 'level-item';
+            div.innerHTML = `
+                <input type="text" placeholder="Nombre del Nivel" class="level-name">
+                <input type="number" placeholder="XP" class="level-xp" value="50" min="10" max="500">
+                <button class="btn-remove" onclick="this.parentElement.remove()">×</button>
+            `;
+            container.appendChild(div);
+        }
+
+        function generateCourse() {
+            const id = document.getElementById('course-id').value;
+            const name = document.getElementById('course-name').value;
+            const icon = document.getElementById('course-icon').value;
+            const desc = document.getElementById('course-desc').value;
+            const color = document.getElementById('course-color').value;
+
+            if (!id || !name) {
+                alert('Completa al menos el ID y nombre del curso');
+                return;
+            }
+
+            const levels = [];
+            document.querySelectorAll('.level-item').forEach((item, idx) => {
+                const levelName = item.querySelector('.level-name').value;
+                const xp = item.querySelector('.level-xp').value;
+                if (levelName) {
+                    levels.push({
+                        id: `${id}-${idx+1}`,
+                        name: levelName,
+                        xp: parseInt(xp) || 50,
+                        content: `cursos/${id}/nivel-${idx+1}.md`
+                    });
+                }
+            });
+
+            if (levels.length === 0) {
+                alert('Agrega al menos un nivel');
+                return;
+            }
+
+            const config = { id, name, icon, desc, color, levels };
+
+            let outputText = `=== ESTRUCTURA ===\n\n`;
+            outputText += `cursos/${id}/\n`;
+            outputText += `├── config.json\n`;
+            levels.forEach((l, i) => {
+                outputText += `├── nivel-${i+1}.md\n`;
+            });
+            
+            outputText += `\n=== config.json ===\n`;
+            outputText += JSON.stringify(config, null, 2);
+            
+            outputText += `\n\n=== INSTRUCCIONES ===\n`;
+            outputText += `1. Crea la carpeta: cursos/${id}/\n`;
+            outputText += `2. Guarda config.json en esa carpeta\n`;
+            outputText += `3. Crea un archivo .md por cada nivel\n`;
+            outputText += `4. Agrega el curso al array en js/app.js\n`;
+            outputText += `5. Sube todo a GitHub Pages`;
+
+            document.getElementById('output-content').textContent = outputText;
+            document.getElementById('output').style.display = 'block';
+        }
+
+        addLevel();
+        addLevel();
+        addLevel();
+    </script>
+</body>
+</html>
