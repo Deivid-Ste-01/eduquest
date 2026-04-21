@@ -81,18 +81,18 @@ class EduQuest {
     loadCourses() {
         return [
             {
-                id: 'matematicas',
-                name: 'Matemáticas',
-                icon: '📐',
-                desc: 'Álgebra, cálculo y geometría',
-                color: 'course-math',
-                levels: [
-                    { id: 'm1', name: 'Nivel 1: Álgebra Básica', xp: 50, content: 'cursos/matematicas/nivel-1.md' },
-                    { id: 'm2', name: 'Nivel 2: Ecuaciones', xp: 75, content: 'cursos/matematicas/nivel-2.md' },
-                    { id: 'm3', name: 'Nivel 3: Funciones', xp: 100, content: 'cursos/matematicas/nivel-3.md' },
-                    { id: 'm4', name: 'Nivel 4: Cálculo Diferencial', xp: 150, content: 'cursos/matematicas/nivel-4.md' }
-                ]
-            },
+    id: 'matematicas',
+    name: 'Matemáticas',
+    icon: '📐',
+    desc: 'Lógica, conjuntos, ecuaciones y más',
+    color: 'course-math',
+    levels: [
+        { id: 'm1', name: 'Nivel 1: Álgebra Básica', xp: 50, content: 'cursos/matematicas/nivel-1.md' },
+        { id: 'm2', name: 'Nivel 2: Lógica Proposicional', xp: 75, content: 'cursos/matematicas/nivel-2.md' },
+        { id: 'm3', name: 'Nivel 3: Teoría de Conjuntos', xp: 100, content: 'cursos/matematicas/nivel-3.md' },
+        { id: 'm4', name: 'Nivel 4: Ecuaciones de Primer Grado', xp: 125, content: 'cursos/matematicas/nivel-4.md' }
+    ]
+},
             {
                 id: 'fisica',
                 name: 'Física',
