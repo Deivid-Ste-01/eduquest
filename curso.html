@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso - EduQuest</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/course.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo" onclick="window.location.href='index.html'" style="cursor:pointer">
+            <span class="logo-icon">🎓</span>
+            <span class="logo-text">EduQuest</span>
+        </div>
+    </nav>
+
+    <div class="course-layout">
+        <aside class="sidebar">
+            <h3 id="sidebar-title">Niveles</h3>
+            <ul class="levels-list" id="levels-list"></ul>
+        </aside>
+
+        <main class="content-area">
+            <div class="content-header">
+                <h1 id="content-title">Cargando...</h1>
+                <div class="content-meta">
+                    <span id="content-xp">0 XP</span>
+                </div>
+            </div>
+            
+            <div class="markdown-content" id="markdown-content">
+                <p>Cargando contenido...</p>
+            </div>
+
+            <div class="action-bar" id="action-bar">
+                <button class="btn-secondary" onclick="window.location.href='index.html'">← Volver</button>
+                <button class="btn-primary" id="complete-btn" onclick="completeCurrentLevel()">
+                    ✓ Completar Nivel
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/course.js"></script>
+</body>
+</html>
