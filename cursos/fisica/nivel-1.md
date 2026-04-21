@@ -1,22 +1,38 @@
-# Nivel 1: Cinemática
+# ⚛️ Nivel 1: Cinemática
 
-## Objetivos
-- Comprender movimiento rectilíneo uniforme
-- Calcular velocidad y aceleración
-- Interpretar gráficas posición-tiempo
+## 🎯 Objetivos de Aprendizaje
+- Comprender el movimiento rectilíneo uniforme (MRU)
+- Calcular velocidad, rapidez y desplazamiento
+- Interpretar gráficas posición-tiempo y velocidad-tiempo
+- Resolver problemas de caída libre
 
-## Contenido
+---
 
-### MRU
-Velocidad constante: v = d/t
+## 📚 Teoría Fundamental
 
-### MRUA
-Aceleración constante:
-- v = v₀ + at
-- d = v₀t + ½at²
+### 1.1 Conceptos Básicos
 
-## Ejercicios
-1. Un auto viaja 120 km en 2 horas. ¿Cuál es su velocidad?
-2. Desde el reposo, un objeto acelera a 2 m/s² durante 5 s. ¿Qué velocidad alcanza?
+| Magnitud | Símbolo | Unidad SI | Definición |
+|----------|---------|-----------|------------|
+| Posición | x, y | metros (m) | Ubicación en el espacio |
+| Desplazamiento | Δx | metros (m) | Cambio de posición: Δx = x_f - x_i |
+| Distancia | d | metros (m) | Longitud total recorrida |
+| Tiempo | t | segundos (s) | Duración del movimiento |
+| Velocidad | v | m/s | Rapidez con dirección: v = Δx/Δt |
+| Rapidez | | m/s | Magnitud de la velocidad |
+| Aceleración | a | m/s² | Cambio de velocidad: a = Δv/Δt |
 
-&gt; 💡 **Tip**: Dibuja siempre un diagrama antes de resolver.
+---
+
+### 1.2 Movimiento Rectilíneo Uniforme (MRU)
+
+**Características:**
+- Velocidad constante (a = 0)
+- Trayectoria recta
+
+**Ecuaciones:**
+$$v = \frac{\Delta x}{\Delta t}$$
+
+$$x_f = x_i + v \cdot t$$
+
+**Gráficas características:**
