@@ -62,3 +62,50 @@ $$x = -\frac{b}{a}$$
 $$\frac{x^2 - 9}{x - 3}$$
 
 **Solución paso a paso:**
+
+
+
+---
+
+## 📝 Ejercicios Propuestos
+
+### Nivel Básico
+1. Simplifica: $(3x^2 - 2x + 5) + (x^2 + 4x - 3)$
+2. Resuelve: $5x - 7 = 3x + 9$
+3. Factoriza: $x^2 - 25$
+
+### Nivel Intermedio
+4. Resuelve: $\frac{2x+1}{3} - \frac{x-2}{4} = 2$
+5. Factoriza: $2x^2 + 7x + 3$
+6. Simplifica: $\frac{x^2 + 5x + 6}{x^2 - 4}$
+
+### Nivel Avanzado (tipo examen universitario)
+7. Resuelve para x: $a(x + b) = c(x + d)$
+8. Si $x^2 + kx + 12 = (x + m)(x + n)$, encuentra todos los valores posibles de k
+
+---
+
+## ✅ Autoevaluación
+
+Marca lo que puedes hacer sin ayuda:
+
+- [ ] Sumar y restar polinomios
+- [ ] Multiplicar polinomios (distributiva)
+- [ ] Resolver ecuaciones lineales simples
+- [ ] Resolver ecuaciones con fracciones
+- [ ] Factorizar diferencia de cuadrados
+- [ ] Factorizar trinomios cuadrados perfectos
+- [ ] Factorizar trinomios de la forma x² + bx + c
+
+> 💡 **Tip de Estudio**: Si tienes menos de 5 casillas marcadas, repasa la teoría antes de continuar al siguiente nivel.
+
+---
+
+## 🔗 Recursos Adicionales
+
+- [Video: Operaciones con Polinomios](https://www.youtube.com/results?search_query=operaciones+con+polinomios)
+- [Práctica: Khan Academy - Álgebra Básica](https://es.khanacademy.org/math/algebra)
+
+---
+
+**¡Listo!** Este formato funciona perfecto con el visualizador de cursos. Cuando el estudiante complete este nivel, ganará 50 XP y desbloqueará el siguiente.
